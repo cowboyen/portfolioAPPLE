@@ -9,8 +9,8 @@
     --border-radius-medium: 8px;
     --transition-standard: 0.3s ease;
     --nav-width: 424px;
-    --nav-item-width: calc(var(--nav-width) / 4);
     --nav-height: 44px;
+    --nav-item-width: calc(var(--nav-width) / 4);
     --nav-background: rgba(255, 255, 255, 0.6);
     --nav-active-background: rgba(245, 245, 245, 1);
 }
@@ -43,7 +43,7 @@ img {
 .navigation {
     display: flex;
     justify-content: center;
-    margin-bottom: var(--spacing-base);
+    margin-bottom: var(--spacing-standard);
     width: 100%;
 }
 
@@ -55,7 +55,7 @@ img {
     border-radius: 67px;
     padding: 2px;
     position: relative;
-    box-shadow: var(--card-shadow);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     width: var(--nav-width);
     height: var(--nav-height);
     margin: 0 auto;
@@ -63,13 +63,15 @@ img {
 
 .nav-indicator {
     position: absolute;
-    width: var(--nav-item-width);
-    height: calc(var(--nav-height) - 4px);
+    width: 106px;
+    height: 40px;
     background: var(--nav-active-background);
-    border-radius: 200px;
-    transition: transform var(--transition-standard);
+    border-radius: 34px;
+    transition: transform var(--transition-speed) ease;
     left: 2px;
-    top: 2px;
+    /* Adjust top position to ensure perfect alignment */
+    top: 50%;
+    transform: translate(103px, -50%); /* Combined transform for x-position and vertical centering */
     z-index: 0;
 }
 
@@ -79,17 +81,28 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: var(--nav-item-width);
+    padding: 0;
+    min-width: 106px;
     height: 100%;
-    text-decoration: none;
+    text-align: center;
     color: var(--secondary-text);
-    font-weight: 500;
     font-size: 14px;
-    transition: color var(--transition-standard);
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 200px;
+    transition: all var(--transition-speed) ease;
+    -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+    user-select: none; /* Prevent text selection */
+    -webkit-touch-callout: none; /* Prevent callout on long press */
 }
 
+
+/* Add transforms for each nav item */
+.nav-item:nth-child(1).active ~ .nav-indicator {
+    transform: translate(0, -50%);
+}
 .nav-item.active {
-    color: var(--primary-text);
+    color: var(--primary-text); /* This will make the active nav item black (30, 30, 30) */
 }
 
 .nav-item:hover,
@@ -99,8 +112,7 @@ img {
 
 .nav-item:focus {
     outline: none;
-    box-shadow: 0 0 0 2px var(--primary-text);
-    border-radius: 200px;
+    box-shadow: none;
 }
 
 .profile-section {
@@ -234,5 +246,12 @@ img {
 
     .gallery-image {
         width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nav-indicator,
+    .nav-item {
+        transition: none;
     }
 }
