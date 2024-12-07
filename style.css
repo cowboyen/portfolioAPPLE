@@ -1,0 +1,238 @@
+:root {
+    --primary-text: rgba(30, 30, 30, 1);
+    --secondary-text: rgba(117, 117, 117, 1);
+    --border-color: rgba(229, 229, 229, 1);
+    --background-light: rgba(245, 245, 245, 1);
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --spacing-base: 24px;
+    --border-radius-large: 32px;
+    --border-radius-medium: 8px;
+    --transition-standard: 0.3s ease;
+    --nav-width: 424px;
+    --nav-item-width: calc(var(--nav-width) / 4);
+    --nav-height: 44px;
+    --nav-background: rgba(255, 255, 255, 0.6);
+    --nav-active-background: rgba(245, 245, 245, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
+    color: var(--primary-text);
+    background-color: #fff;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.portfolio-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 64px 32px;
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--spacing-base);
+    width: 100%;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    background: var(--nav-background);
+    border: 1px solid var(--border-color);
+    border-radius: 67px;
+    padding: 2px;
+    position: relative;
+    box-shadow: var(--card-shadow);
+    width: var(--nav-width);
+    height: var(--nav-height);
+    margin: 0 auto;
+}
+
+.nav-indicator {
+    position: absolute;
+    width: var(--nav-item-width);
+    height: calc(var(--nav-height) - 4px);
+    background: var(--nav-active-background);
+    border-radius: 200px;
+    transition: transform var(--transition-standard);
+    left: 2px;
+    top: 2px;
+    z-index: 0;
+}
+
+.nav-item {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--nav-item-width);
+    height: 100%;
+    text-decoration: none;
+    color: var(--secondary-text);
+    font-weight: 500;
+    font-size: 14px;
+    transition: color var(--transition-standard);
+}
+
+.nav-item.active {
+    color: var(--primary-text);
+}
+
+.nav-item:hover,
+.nav-item:focus {
+    color: var(--primary-text);
+}
+
+.nav-item:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary-text);
+    border-radius: 200px;
+}
+
+.profile-section {
+    margin-bottom: calc(var(--spacing-base) * 2);
+    text-align: center;
+}
+
+.profile-container {
+    max-width: 864px;
+    margin: 0 auto;
+}
+
+.profile-image {
+    width: 72px;
+    height: 72px;
+    border-radius: 35px;
+    margin: 0 auto var(--spacing-base);
+}
+
+.profile-name {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: var(--spacing-base);
+}
+
+.profile-details {
+    font-size: 24px;
+    color: var(--secondary-text);
+}
+
+.projects-section {
+    max-width: 982px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background: var(--background-light);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-large);
+    padding: 40px 32px;
+    margin-bottom: var(--spacing-base);
+}
+
+.project-card-small {
+    background: var(--background-light);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius-large);
+    padding: 28px 24px;
+    flex: 1;
+    min-width: 240px;
+    max-width: 479px;
+}
+
+.projects-grid {
+    display: flex;
+    gap: var(--spacing-base);
+    margin-bottom: var(--spacing-base);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-base);
+}
+
+.project-title {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.project-icon {
+    width: 47px;
+    height: 47px;
+    background-color: #E6E6E6;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.icon-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-description {
+    color: var(--secondary-text);
+    font-size: 20px;
+    margin-bottom: var(--spacing-base);
+}
+
+.project-preview {
+    border-radius: var(--border-radius-medium);
+    overflow: hidden;
+}
+
+.preview-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.project-gallery {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.gallery-image {
+    flex: 1;
+    min-width: 240px;
+    border-radius: var(--border-radius-medium);
+}
+
+@media (max-width: 768px) {
+    .portfolio-container {
+        padding: 32px 16px;
+    }
+
+    .projects-grid {
+        flex-direction: column;
+    }
+
+    .project-card-small {
+        max-width: 100%;
+    }
+
+    .project-gallery {
+        flex-direction: column;
+    }
+
+    .gallery-image {
+        width: 100%;
+    }
+}
