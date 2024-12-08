@@ -10,8 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
+<script type="text/javascript" src="spline.js"></script>
 <body>
     <div class="portfolio-container">
+        <div class="animation-container"></div>
+        
         <nav class="navigation" role="navigation" aria-label="Main navigation">
             <div class="nav-menu">
                 <a href="index.html" class="nav-item active" aria-current="page">Home</a>
@@ -25,7 +28,7 @@
         <main>
             <section class="profile-section" aria-labelledby="profile-heading">
                 <div class="profile-container">
-                    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.44/build/spline-viewer.js"></script>
+                    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.48/build/spline-viewer.js"></script>
                     <spline-viewer url="https://prod.spline.design/LxZUKKOCNNT5Mufv/scene.splinecode"></spline-viewer>
                     <div class="profile-info">
                         <h1 id="profile-heading" class="profile-name">Herman Skog</h1>
@@ -42,7 +45,8 @@
                     <div class="project-header">
                         <h2 class="project-title">Learnly</h2>
                         <div class="project-icon">
-                            <img src="img/open.svg" alt="" class="icon-image" width="47" height="47" loading="lazy" aria-hidden="true"/>                        </div>
+                            <img src="img/open.svg" alt="" class="icon-image" width="47" height="47" loading="lazy" aria-hidden="true"/>
+                        </div>
                     </div>
                     <p class="project-description">A lesson-based app for on-demand learning and skill-building.</p>
                 </article>
@@ -57,7 +61,7 @@
                         </div>
                         <p class="project-description">A redesign of the American advertisement website. My first design in Figma.</p>
                         <div class="project-preview">
-                            <img src="https://cdn.builder.io/api/v1/image/assets/5c5a1c7e3cef499ba42a791093f6b50d/524fc016bcbe21bcc9c78a02837e3b548984fc4ad22f689e82b4e9d24b367876?apiKey=5c5a1c7e3cef499ba42a791093f6b50d&" alt="Medlytic project interface preview" class="preview-image" width="371" height="230" loading="lazy"/>
+                            <img src="img/medlytic.png" class="preview-image" width="371" height="230" loading="lazy"/>
                         </div>
                     </article>
 
@@ -91,5 +95,89 @@
             </section>
         </main>
     </div>
+
+    <script>
+const { assign } = Object;
+// Array med ulike smileys
+const smileys = ['=)', 'Hi', 'Hei'];
+
+function letter() {
+    let c = Math.random() * 155;
+    const el = assign(
+        document.createElement('div'), {
+            // Velg tilfeldig smiley fra array
+            innerHTML: smileys[Math.floor(Math.random() * smileys.length)],
+            style: `
+                position: absolute;
+                font-family: Helvetica;
+                color: rgb(${c}, ${c}, ${c})
+            `
+        }
+    );
+            document.querySelector('.animation-container').append(el);
+            el.x = innerWidth / 2;
+            el.y = innerHeight / 3;
+            el.s = Math.random() * 5 + .3;
+            el.vy = Math.random() * 2 + .1;
+            el.r = Math.random() * 360;
+            el.ri = Math.random() * 10 - 5;
+            el.vx = 0;
+            if (Math.abs(el.ri) < 1) el.ri = 1;
+            
+            const o = {
+                el,
+                run() {
+                    el.r += el.ri;
+                    assign(el.style, {
+                        transform: `translate(${el.x}px, ${el.y}px) rotate(${el.r}deg) scale(${el.s})`
+                    });
+                    
+                    for (let i = 0; i < NUM; i++) {
+                        const l = letters[i];
+                        if (l && l.el && l !== o) {
+                            let dx = el.x - l.el.x;
+                            let dy = el.y - l.el.y;
+                            const d = Math.sqrt(dx * dx + dy * dy);
+                            if (d < 100 * el.s / 4) {
+                                let ang = Math.atan2(dy, dx);
+                                el.vx += .02 * Math.cos(ang);
+                                el.vy += .02 * Math.sin(ang);
+                                l.el.vx += .02 * Math.cos(-ang);
+                                l.el.vy += .02 * Math.sin(-ang);
+                            }
+                        }
+                    }
+                    
+                    el.vx *= .98;
+                    el.vy *= .98;
+                    el.y += el.vy;
+                    el.x += el.vx;
+
+                    if (el.x > innerWidth + 200) el.x = -100;
+                    if (el.y < -50) el.y = 320;
+                    if (el.y > 320) el.y = -50;
+                }
+            };
+            return o;
+        }
+
+        const NUM = 30;
+        let letters = [];
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            for (let i = 0; i < NUM; i++) {
+                letters[i] = letter();
+            }
+            
+            function loop() {
+                for (let i = 0; i < NUM; i++) {
+                    letters[i].run();
+                }
+                requestAnimationFrame(loop);
+            }
+            
+            loop();
+        });
+    </script>
 </body>
 </html>
