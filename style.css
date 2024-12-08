@@ -8,7 +8,7 @@
     --border-radius-large: 32px;
     --border-radius-medium: 8px;
     --transition-standard: 0.3s ease;
-    --nav-width: 424px;
+    --nav-width: min(424px, 90vw);
     --nav-height: 44px;
     --nav-item-width: calc(var(--nav-width) / 4);
     --nav-background: rgba(255, 255, 255, 0.6);
@@ -63,14 +63,14 @@ img {
 
 .nav-indicator {
     position: absolute;
-    width: 106px;
+    width: calc(var(--nav-width) / 4 - 4px); /* Justert for responsiv bredde */
     height: 40px;
     background: var(--nav-active-background);
     border-radius: 34px;
     transition: transform var(--transition-speed) ease;
     left: 2px;
     top: 50%;
-    transform: translate(103px, -50%);
+    transform: translate(calc(var(--nav-width) / 4), -50%); /* Justert for responsiv bredde */
     z-index: 0;
 }
 
@@ -295,5 +295,20 @@ img {
     .nav-indicator,
     .nav-item {
         transition: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-item {
+        font-size: 12px; /* Mindre tekst på små skjermer */
+        padding: 0 4px; /* Mindre padding */
+    }
+    
+    :root {
+        --nav-height: 40px; /* Litt mindre høyde på mobil */
+    }
+    
+    .nav-indicator {
+        height: 36px; /* Tilpasset høyde */
     }
 }
