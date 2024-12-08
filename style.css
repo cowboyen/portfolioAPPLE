@@ -43,7 +43,7 @@ img {
 .navigation {
     display: flex;
     justify-content: center;
-    margin-bottom: var(--spacing-standard);
+    margin-bottom: var(--spacing-base);
     width: 100%;
 }
 
@@ -59,18 +59,19 @@ img {
     width: var(--nav-width);
     height: var(--nav-height);
     margin: 0 auto;
+    overflow: hidden;
 }
 
 .nav-indicator {
     position: absolute;
-    width: calc(var(--nav-width) / 4 - 4px); /* Justert for responsiv bredde */
+    width: calc(var(--nav-width) / 4 - 4px);
     height: 40px;
     background: var(--nav-active-background);
     border-radius: 34px;
-    transition: transform var(--transition-speed) ease;
+    transition: transform var(--transition-standard) ease;
     left: 2px;
     top: 50%;
-    transform: translate(calc(var(--nav-width) / 4), -50%); /* Justert for responsiv bredde */
+    transform: translate(calc(var(--nav-width) / 4), -50%);
     z-index: 0;
 }
 
@@ -80,8 +81,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
-    min-width: 106px;
+    width: 25%;
     height: 100%;
     text-align: center;
     color: var(--secondary-text);
@@ -89,10 +89,14 @@ img {
     font-weight: 500;
     text-decoration: none;
     border-radius: 200px;
-    transition: all var(--transition-speed) ease;
+    transition: all var(--transition-standard) ease;
     -webkit-tap-highlight-color: transparent;
     user-select: none;
     -webkit-touch-callout: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 4px;
 }
 
 .nav-item:nth-child(1).active ~ .nav-indicator {
@@ -164,7 +168,7 @@ img {
     max-width: 479px;
     display: flex;
     flex-direction: column;
-    overflow: hidden; /* Sikrer at innhold ikke går over border */
+    overflow: hidden;
 }
 
 .projects-grid {
@@ -188,7 +192,7 @@ img {
 .project-icon {
     width: 47px;
     height: 47px;
-    border-radius: 50%; /* Endret til sirkulær form */
+    border-radius: 50%;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
@@ -225,7 +229,6 @@ img {
     border-radius: 6px 6px 0 0;
     box-shadow: 0 0 0 1px #EFEFEF;
 }
-
 
 .project-gallery {
     display: flex;
@@ -273,15 +276,14 @@ img {
         max-width: 100%;
     }
 
-    @media (max-width: 768px) {
-        .project-preview {
-            margin-bottom: -2px; /* Fjerner gap på mobil */
-        }
-        
-        .preview-image {
-            vertical-align: bottom; /* Ekstra sikring mot whitespace på mobil */
-        }
+    .project-preview {
+        margin-bottom: -2px;
     }
+    
+    .preview-image {
+        vertical-align: bottom;
+    }
+
     .project-gallery {
         flex-direction: column;
     }
@@ -291,24 +293,31 @@ img {
     }
 }
 
+@media (max-width: 480px) {
+    .nav-item {
+        font-size: 12px;
+        padding: 0 2px;
+    }
+    
+    :root {
+        --nav-height: 40px;
+    }
+    
+    .nav-indicator {
+        height: 36px;
+    }
+}
+
+@media (max-width: 360px) {
+    .nav-item {
+        font-size: 11px;
+        padding: 0 1px;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .nav-indicator,
     .nav-item {
         transition: none;
-    }
-}
-
-@media (max-width: 480px) {
-    .nav-item {
-        font-size: 12px; /* Mindre tekst på små skjermer */
-        padding: 0 4px; /* Mindre padding */
-    }
-    
-    :root {
-        --nav-height: 40px; /* Litt mindre høyde på mobil */
-    }
-    
-    .nav-indicator {
-        height: 36px; /* Tilpasset høyde */
     }
 }
