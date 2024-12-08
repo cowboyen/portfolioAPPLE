@@ -13,7 +13,7 @@
     --transition-speed: 0.3s;
     --hover-scale: 1.02;
     --hover-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-    --nav-width: 424px;
+    --nav-width: min(424px, 90vw);
     --nav-height: 44px;
     --nav-item-width: calc(var(--nav-width) / 4);
     --nav-background: rgba(255, 255, 255, 0.6);
@@ -57,21 +57,22 @@ body {
     padding: 2px;
     position: relative;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    width: var(--nav-width);
-    height: var(--nav-height);
+    width: min(424px, 90vw);
+    height: 44px;
     margin: 0 auto;
+    overflow: hidden;
 }
 
 .nav-indicator {
     position: absolute;
-    width: calc(25% - 4px);
+    width: calc(var(--nav-width) / 4 - 4px);
     height: 40px;
     background: var(--nav-active-background);
     border-radius: 34px;
     transition: transform var(--transition-speed) ease;
     left: 2px;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translate(calc(var(--nav-width) / 4), -50%);
     z-index: 0;
 }
 
@@ -81,12 +82,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
-    min-width: 106px;
+    width: 25%;
     height: 100%;
     text-align: center;
     color: var(--secondary-text);
-    font-size: 14px;
+    font-size: clamp(11px, 4vw, 14px);
     font-weight: 500;
     text-decoration: none;
     border-radius: 200px;
@@ -94,10 +94,14 @@ body {
     -webkit-tap-highlight-color: transparent;
     user-select: none;
     -webkit-touch-callout: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 4px;
 }
 
-.nav-item:nth-child(2).active ~ .nav-indicator {
-    transform: translate(103px, -50%);
+.nav-item:nth-child(1).active ~ .nav-indicator {
+    transform: translate(0, -50%);
 }
 
 .nav-item.active {
@@ -219,7 +223,7 @@ body {
 }
 
 .card-text {
-    font-size: clamp(30px, 4vw, 28px);
+    font-size: 32px;
     font-weight: 700;
     line-height: 1.2;
     overflow: hidden;
@@ -313,7 +317,7 @@ body {
 
 @media (max-width: 991px) {
     .about {
-        padding: 32px;
+        padding: 32px 16px;
     }
 
     .cards-grid {
@@ -337,7 +341,7 @@ body {
     }
 
     .card-text {
-        font-size: clamp(28px, 4vw, 32px);
+        font-size: 32px;
     }
 
     .card-label {
@@ -368,10 +372,16 @@ body {
     }
     
     .nav-indicator {
-        width: calc(25% - 4px);
-        transform: translate(2px, -50%);
-        border-radius: 34px;
+        position: absolute;
+        width: calc(var(--nav-width) / 4 - 4px);
         height: 40px;
+        background: var(--nav-active-background);
+        border-radius: 34px;
+        transition: transform var(--transition-speed) ease;
+        left: 2px;
+        top: 50%;
+        transform: translate(calc(var(--nav-width) / 4 * 2), -50%);
+        z-index: 0;
     }
     
     .nav-item {
@@ -406,4 +416,21 @@ body {
     .info-card {
         transition: none;
     }
+}
+
+@media (max-width: 480px) {
+    .nav-menu {
+        height: 40px;
+    }
+    
+    .nav-indicator {
+        height: 32px;
+    }
+    
+    .nav-item {
+        font-size: clamp(12px, 4vw, 12px);
+    }
+}
+:root {
+    --nav-height: 40px;
 }

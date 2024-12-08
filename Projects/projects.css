@@ -1,3 +1,0 @@
-.nav-item:nth-child(3).active ~ .nav-indicator {
-    transform: translate(206px, -50%);
-}
