@@ -223,7 +223,7 @@ body {
 }
 
 .card-text {
-    font-size: 32px;
+    font-size: 29px;
     font-weight: 700;
     line-height: 1.2;
     overflow: hidden;
@@ -231,6 +231,7 @@ body {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+    min-height: calc(24px * 1.2 * 3); /* Setter en minstehøyde basert på 3 linjer med tekst */
 }
 
 .back-content {
@@ -341,7 +342,8 @@ body {
     }
 
     .card-text {
-        font-size: 32px;
+        font-size: 28px;
+        min-height: calc(20px * 1.2 * 3);
     }
 
     .card-label {
