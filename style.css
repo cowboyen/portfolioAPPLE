@@ -218,16 +218,20 @@ img {
 .project-preview {
     position: relative;
     margin-top: auto;
-    padding: 0 29px;
+    padding: 0 32px;  /* Redusert fra 40px */
     overflow: hidden;
+    width: 100%;
 }
 
 .preview-image {
     width: 100%;
     height: auto;
+    aspect-ratio: 1440/972;  /* Bruker Medlytic-bildets proporsjoner */
     display: block;
     border-radius: 6px 6px 0 0;
     box-shadow: 0 0 0 1px #EFEFEF;
+    object-fit: cover;
+    object-position: top; /* Dette vil beholde toppen og croppe bunnen */
 }
 
 .project-gallery {
