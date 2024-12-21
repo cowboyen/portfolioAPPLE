@@ -64,14 +64,14 @@ img {
 
 .nav-indicator {
     position: absolute;
-    width: calc(var(--nav-width) / 4 - 4px);
+    width: calc(var(--nav-width) / 4 - 8px);  /* Økte fratrekket fra 4px til 8px */
     height: 40px;
     background: var(--nav-active-background);
     border-radius: 34px;
-    transition: transform var(--transition-standard) ease;
+    transition: transform var(--transition-speed) ease;
     left: 2px;
     top: 50%;
-    transform: translate(calc(var(--nav-width) / 4), -50%);
+    transform: translate(calc(var(--nav-width) / 4 * 2), -50%);
     z-index: 0;
 }
 
@@ -226,12 +226,14 @@ img {
 .preview-image {
     width: 100%;
     height: auto;
-    aspect-ratio: 1440/972;  /* Bruker Medlytic-bildets proporsjoner */
+    aspect-ratio: 1440/972;
     display: block;
     border-radius: 6px 6px 0 0;
-    box-shadow: 0 0 0 1px #EFEFEF;
+    border-top: 1px solid #EFEFEF;
+    border-left: 1px solid #EFEFEF;
+    border-right: 1px solid #EFEFEF;
     object-fit: cover;
-    object-position: top; /* Dette vil beholde toppen og croppe bunnen */
+    object-position: top;
 }
 
 .project-gallery {
