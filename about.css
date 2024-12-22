@@ -18,6 +18,7 @@
     --nav-item-width: calc(var(--nav-width) / 4);
     --nav-background: rgba(255, 255, 255, 0.6);
     --nav-active-background: rgba(245, 245, 245, 1);
+    --spotify-green: rgba(29, 185, 84, 0.1);
 }
 
 * {
@@ -199,7 +200,7 @@ body {
     background-color: var(--background-secondary);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-large);
-    padding: var(--card-padding);
+    padding: 24px 24px 32px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -309,7 +310,7 @@ body {
     background-color: var(--background-secondary);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-large);
-    padding: 24px; /* Slightly reduced padding */
+    padding: 24px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -326,7 +327,7 @@ body {
     margin: 0;
     line-height: 1;
     position: absolute;
-    left: 66px; /* Width of logo (50px) + margin (16px) */
+    left: 66px;
     transform: translateY(-50%);
     top: 50%;
 }
@@ -338,7 +339,7 @@ body {
 .spotify-tracks {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Increased from 24px to 32px */
+    gap: 20px;
 }
 
 .loader {
@@ -349,10 +350,15 @@ body {
     padding: 12px;
     border-radius: 12px;
     transition: var(--transition-speed) ease;
+    text-decoration: none;
+    color: inherit;
 }
 
+.loader:hover,
+.loader:focus,
 .loader.active {
-    background-color: rgba(29, 185, 84, 0.1);
+    background-color: var(--spotify-green);
+    outline: none;
 }
 
 .track-status {
@@ -405,14 +411,14 @@ body {
     width: 48px;
     height: 48px;
     border-radius: 8px;
-    overflow: hidden; /* Ensures the image is clipped to the div's shape */
-    background-color: var(--border-color); /* Fallback color */
+    overflow: hidden;
+    background-color: var(--border-color);
 }
 
 .album-image {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures the image covers the entire div */
+    object-fit: cover;
 }
 
 .song {
@@ -493,6 +499,9 @@ body {
         aspect-ratio: 2.34/1;
         object-position: center center;
     }
+    .portfolio-container {
+        padding: 32px 16px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -530,7 +539,8 @@ body {
 @media (prefers-reduced-motion: reduce) {
     .nav-item,
     .info-card,
-    .load {
+    .load,
+    .loader {
         transition: none;
         animation: none;
     }

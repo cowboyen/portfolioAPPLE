@@ -102,6 +102,12 @@ body {
     box-shadow: none;
 }
 
+@media (max-width: 768px) {
+    .portfolio-container {
+        padding: 32px 16px;
+    }
+}
+
 @media (max-width: 480px) {
     .nav-item {
         font-size: 12px;
