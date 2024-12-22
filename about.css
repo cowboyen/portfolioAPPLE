@@ -289,18 +289,17 @@ body {
     box-shadow: var(--hover-shadow);
 }
 
-/* Portrait and Spotify Section */
 .content-section {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;  /* To like kolonner på desktop */
+    grid-template-columns: 1fr 1fr;
     gap: var(--spacing-standard);
     margin-top: var(--spacing-standard);
 }
 
 .portrait-image {
     width: 100%;
-    aspect-ratio: 3/4;  /* Mer portrettformat siden vi nå har mer plass i høyden */
+    aspect-ratio: 3/4;
     object-fit: cover;
     object-position: center 20%;
     border-radius: var(--border-radius-large);
@@ -310,11 +309,12 @@ body {
     background-color: var(--background-secondary);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-large);
-    padding: 32px;
-    height: 100%;  /* Fyller hele høyden */
+    padding: 24px; /* Slightly reduced padding */
+    height: 100%;
     display: flex;
     flex-direction: column;
 }
+
 .currentplaying {
     display: flex;
     align-items: center;
@@ -325,52 +325,47 @@ body {
     margin-right: 16px;
 }
 
-.heading {
-    font-size: 18px;
-    font-weight: 600;
-}
-
 .spotify-tracks {
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    justify-content: flex-start;
+    overflow: auto;
 }
 
 .loader {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 48px 1fr;
     align-items: center;
+    gap: 16px;
     padding: 12px;
     border-radius: 12px;
     transition: var(--transition-speed) ease;
 }
 
-.loader:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-    cursor: pointer;
+.loader.active {
+    background-color: rgba(29, 185, 84, 0.1);
 }
 
-.song {
-    flex: 1;
-    margin-right: 16px;
+.track-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
 }
 
-.song .name {
-    font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 4px;
+.track-status .play,
+.track-status .loading {
+    display: flex;
+    align-items: center;
 }
 
-.song .artist {
-    font-size: 14px;
-    color: var(--secondary-text);
-}
-
-.albumcover {
-    width: 48px;
-    height: 48px;
-    background-color: var(--border-color);
-    border-radius: 8px;
-    margin-right: 16px;
+.play {
+    width: 0;
+    height: 0;
+    border-left: 10px solid var(--primary-text);
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
 }
 
 .loading {
@@ -398,12 +393,28 @@ body {
     100% { height: 6px; }
 }
 
-.play {
-    width: 10px;
-    height: 10px;
-    border-left: 10px solid var(--primary-text);
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
+.albumcover {
+    width: 48px;
+    height: 48px;
+    background-color: var(--border-color);
+    border-radius: 8px;
+}
+
+.song {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.song .name {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.song .artist {
+    font-size: 14px;
+    color: var(--secondary-text);
 }
 
 @media (max-width: 991px) {
@@ -452,41 +463,20 @@ body {
     .back-details li {
         font-size: 13px;
     }
-    
-    .spotify-container {
-        padding: 24px 16px;
-    }
 
-    .song .name {
-        font-size: 14px;
-    }
-
-    .song .artist {
-        font-size: 12px;
+    .loader {
+        grid-template-columns: auto 48px 1fr;
     }
 }
 
 @media (max-width: 768px) {
     .content-section {
-        grid-template-columns: 1fr;  /* Stacker på mobil */
+        grid-template-columns: 1fr;
     }
 
     .portrait-image {
-        aspect-ratio: 2.34/1;  /* Original mobil ratio */
+        aspect-ratio: 2.34/1;
         object-position: center center;
-    }
-    
-    .spotify-container {
-        padding: 24px 16px;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .nav-item,
-    .info-card,
-    .load {
-        transition: none;
-        animation: none;
     }
 }
 
@@ -503,11 +493,30 @@ body {
     .nav-indicator {
         height: 36px;
     }
+
+    .loader {
+        grid-template-columns: auto 40px 1fr;
+        gap: 12px;
+    }
+
+    .albumcover {
+        width: 40px;
+        height: 40px;
+    }
 }
 
 @media (max-width: 360px) {
     .nav-item {
         font-size: 11px;
         padding: 0 1px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nav-item,
+    .info-card,
+    .load {
+        transition: none;
+        animation: none;
     }
 }

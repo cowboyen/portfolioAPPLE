@@ -135,41 +135,44 @@
                 
                 <div class="spotify-container">
                     <div class="currentplaying">
-                        <svg height="50" width="50" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" class="spotify">
-                            <path d="M57,32c0,12.837-9.663,23.404-22.115,24.837C33.942,56.942,32.971,57,32,57 c-1.644,0-3.25-0.163-4.808-0.471C15.683,54.298,7,44.163,7,32C7,18.192,18.192,7,32,7S57,18.192,57,32z" fill="#1DB954"/>
-                            <path d="M41.683,44.394c-0.365,0-0.731-0.181-1.096-0.365c-3.471-2.009-7.674-3.105-12.24-3.105 c-2.559,0-5.116,0.364-7.491,0.912c-0.365,0-0.914,0.183-1.096,0.183c-0.914,0-1.461-0.732-1.461-1.462 c0-0.913,0.547-1.463,1.279-1.643c2.923-0.732,5.846-1.096,8.951-1.096c5.116,0,9.866,1.276,13.885,3.655 c0.548,0.364,0.914,0.73,0.914,1.642C43.145,43.847,42.414,44.394,41.683,44.394z" fill="#fff"/>
-                        </svg>
+                        <img src="img/spotify-logo.png" class="spotify" width="50" height="50">
                         <p class="heading">Currently Playing</p>
                     </div>
                     <div class="spotify-tracks">
-                        <div class="loader">
+                        <div class="loader active">
+                            <div class="track-status">
+                                <div class="loading">
+                                    <div class="load"></div>
+                                    <div class="load"></div>
+                                    <div class="load"></div>
+                                    <div class="load"></div>
+                                </div>
+                            </div>
+                            <div class="albumcover"></div>
                             <div class="song">
                                 <p class="name">Young Adult, Common Nettle</p>
                                 <p class="artist">Croatian Amor</p>
                             </div>
-                            <div class="albumcover"></div>
-                            <div class="loading">
-                                <div class="load"></div>
-                                <div class="load"></div>
-                                <div class="load"></div>
-                                <div class="load"></div>
-                            </div>
                         </div>
                         <div class="loader">
+                            <div class="track-status">
+                                <div class="play"></div>
+                            </div>
+                            <div class="albumcover"></div>
                             <div class="song">
                                 <p class="name">Yamanote Line (原​宿)</p>
                                 <p class="artist">Varg2™</p>
                             </div>
-                            <div class="albumcover"></div>
-                            <div class="play"></div>
                         </div>
                         <div class="loader">
+                            <div class="track-status">
+                                <div class="play"></div>
+                            </div>
+                            <div class="albumcover"></div>
                             <div class="song">
                                 <p class="name">Silhouette</p>
                                 <p class="artist">FAKETHIAS</p>
                             </div>
-                            <div class="albumcover"></div>
-                            <div class="play"></div>
                         </div>
                     </div>
                 </div>
