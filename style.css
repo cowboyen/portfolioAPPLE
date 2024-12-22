@@ -64,14 +64,14 @@ img {
 
 .nav-indicator {
     position: absolute;
-    width: calc(var(--nav-width) / 4 - 4px);
+    width: calc(var(--nav-width) / 4 - 8px);
     height: 40px;
     background: var(--nav-active-background);
     border-radius: 34px;
     transition: transform var(--transition-standard) ease;
     left: 2px;
     top: 50%;
-    transform: translate(calc(var(--nav-width) / 4), -50%);
+    transform: translate(calc(var(--nav-width) / 4 * 2), -50%);
     z-index: 0;
 }
 
@@ -156,20 +156,6 @@ img {
     display: block;
 }
 
-.project-card-link:hover .project-card {
-    transform: scale(0.98);
-    border-color: transparent;
-    box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, 0.3);
-}
-
-.project-card-link:hover .project-card::before {
-    opacity: 1;
-}
-
-.project-card-link:hover .icon-image {
-    transform: rotate(90deg);
-}
-
 .project-card {
     background: var(--background-light);
     border: 1px solid var(--border-color);
@@ -177,11 +163,6 @@ img {
     padding: 40px 32px;
     margin-bottom: var(--spacing-base);
     transition: all 0.25s cubic-bezier(0, 0, 0, 1);
-}
-
-.project-card:hover {
-    transform: scale(0.98);
-    box-shadow: 0px 0px 30px 1px #0000004d;
 }
 
 .project-card-small {
@@ -192,24 +173,17 @@ img {
     flex: 1;
     min-width: 240px;
     max-width: 479px;
-    min-height: 465px; /* Lagt til denne linjen */
+    min-height: 465px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
     transition: all 0.25s cubic-bezier(0, 0, 0, 1);
 }
 
-.project-card-small:hover {
-    transform: scale(0.98);
-    box-shadow: 0px 0px 30px 1px #0000004d;
-}
-
-
 .projects-grid {
     display: flex;
     gap: var(--spacing-base);
-    margin-bottom: 
-    var(--spacing-base);
+    margin-bottom: var(--spacing-base);
 }
 
 .project-header {
@@ -240,18 +214,26 @@ img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s cubic-bezier(0, 0, 0, 1); /* Smooth overgang bare på transform */
-    transform: rotate(0deg);
+    transition: transform 0.3s cubic-bezier(0, 0, 0, 1);
 }
 
-.project-card:hover .icon-image {
-    transform: rotate(45deg);
+/* Desktop stiler */
+@media (min-width: 769px) {
+    .project-card:hover {
+        transform: scale(0.98);
+        box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, 0.3);
+    }
+    
+    .project-card-small:hover {
+        transform: scale(0.98);
+        box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, 0.3);
+    }
+    
+    .project-card:hover .icon-image,
+    .project-card-small:hover .icon-image {
+        transform: rotate(45deg);
+    }
 }
-
-.project-card-small:hover .icon-image {
-    transform: rotate(45deg);
-}
-
 
 .project-description {
     color: var(--secondary-text);
@@ -262,7 +244,7 @@ img {
 .project-preview {
     position: relative;
     margin-top: auto;
-    padding: 0 32px;  /* Redusert fra 40px */
+    padding: 0 32px;
     overflow: hidden;
     width: 100%;
 }
@@ -270,11 +252,11 @@ img {
 .preview-image {
     width: 100%;
     height: auto;
-    aspect-ratio: 1440/972;  /* Bruker Medlytic-bildets proporsjoner */
+    aspect-ratio: 1440/972;
     display: block;
     border-radius: 6px 6px 0 0;
     box-shadow: 0 0 0 1px #EFEFEF;
-    object-fit: cover;  /* Dette sikrer at bildet fyller hele området */
+    object-fit: cover;
 }
 
 .project-gallery {
@@ -337,6 +319,18 @@ img {
 
     .gallery-image {
         width: 100%;
+    }
+    
+    /* Fjern hover effekter på mobil */
+    .project-card:hover,
+    .project-card-small:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    
+    /* Lock icon rotation på mobil */
+    .icon-image {
+        transform: rotate(45deg) !important;
     }
 }
 

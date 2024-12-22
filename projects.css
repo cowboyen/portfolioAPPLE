@@ -156,12 +156,7 @@ img {
     display: block;
 }
 
-.project-card-link:hover .project-card {
-    transform: scale(0.98);
-    border-color: transparent;
-    box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, 0.3);
-}
-
+/* Flyttet hover-effekter til desktop media query */
 .project-card {
     background: var(--background-light);
     border: 1px solid var(--border-color);
@@ -169,11 +164,6 @@ img {
     padding: 40px 32px;
     margin-bottom: var(--spacing-base);
     transition: all 0.25s cubic-bezier(0, 0, 0, 1);
-}
-
-.project-card:hover {
-    transform: scale(0.98);
-    box-shadow: 0px 0px 30px 1px #0000004d;
 }
 
 .project-card-small {
@@ -189,11 +179,6 @@ img {
     flex-direction: column;
     overflow: hidden;
     transition: all 0.25s cubic-bezier(0, 0, 0, 1);
-}
-
-.project-card-small:hover {
-    transform: scale(0.98);
-    box-shadow: 0px 0px 30px 1px #0000004d;
 }
 
 .projects-grid {
@@ -234,12 +219,28 @@ img {
     transform: rotate(0deg);
 }
 
-.project-card:hover .icon-image {
-    transform: rotate(45deg);
-}
+/* Desktop hover effekter */
+@media (min-width: 769px) {
+    .project-card-link:hover .project-card {
+        transform: scale(0.98);
+        border-color: transparent;
+        box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, 0.3);
+    }
+    
+    .project-card:hover {
+        transform: scale(0.98);
+        box-shadow: 0px 0px 30px 1px #0000004d;
+    }
 
-.project-card-small:hover .icon-image {
-    transform: rotate(45deg);
+    .project-card-small:hover {
+        transform: scale(0.98);
+        box-shadow: 0px 0px 30px 1px #0000004d;
+    }
+
+    .project-card:hover .icon-image,
+    .project-card-small:hover .icon-image {
+        transform: rotate(45deg);
+    }
 }
 
 .project-description {
@@ -326,6 +327,20 @@ img {
 
     .gallery-image {
         width: 100%;
+    }
+
+    /* Fjern hover-effekter på mobil */
+    .project-card:hover,
+    .project-card-small:hover,
+    .project-card-link:hover .project-card {
+        transform: none;
+        box-shadow: none;
+        border-color: var(--border-color);
+    }
+    
+    /* Lås ikonrotasjon på mobil */
+    .icon-image {
+        transform: rotate(45deg) !important;
     }
 }
 
