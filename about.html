@@ -32,7 +32,7 @@
 
             <div class="cards-grid">
                 <article class="scene">
-                    <div class="info-card card">
+                    <div class="info-card">
                         <div class="card__face card__face--front">
                             <h2 class="card-label">About me</h2>
                             <p class="card-text">Designer and tech student</p>
@@ -43,15 +43,13 @@
                                 <p class="back-description">
                                     UX designer and tech student. Apart from that, I'm mostly into cycling, bouldering, and electronic music. I love to explore new places, both with and without a bike.
                                 </p>
-                                <ul class="back-details">
-                                </ul>
                             </div>
                         </div>
                     </div>
                 </article>
                 
                 <article class="scene">
-                    <div class="info-card card">
+                    <div class="info-card">
                         <div class="card__face card__face--front">
                             <h2 class="card-label">Where I am located</h2>
                             <p class="card-text">Currently based in Oslo</p>
@@ -62,15 +60,13 @@
                                 <p class="back-description">
                                     Working and living in the heart of Scandinavia, inspired by the minimalist design philosophy and the vibrant tech community of Oslo.
                                 </p>
-                                <ul class="back-details">
-                                </ul>
                             </div>
                         </div>
                     </div>
                 </article>
                 
                 <article class="scene">
-                    <div class="info-card card">
+                    <div class="info-card">
                         <div class="card__face card__face--front">
                             <h2 class="card-label">What I Do</h2>
                             <p class="card-text">Designing with purpose and creativity.</p>
@@ -82,8 +78,6 @@
                                     Specializing in creating user-centered designs that combine aesthetics with functionality, focusing on intuitive interactions and meaningful experiences.
                                     <br><br>Familiar with processes, hand-offs and design systems.
                                 </p>
-                                <ul class="back-details">
-                                </ul>
                             </div>
                         </div>
                     </div>
@@ -92,7 +86,7 @@
 
             <div class="cards-grid-2">
                 <article class="scene">
-                    <div class="info-card card">
+                    <div class="info-card">
                         <div class="card__face card__face--front">
                             <h2 class="card-label">My Design Philosophy</h2>
                             <p class="card-text">User-centered, solution-driven.</p>
@@ -114,7 +108,7 @@
                 </article>
                 
                 <article class="scene">
-                    <div class="info-card card">
+                    <div class="info-card">
                         <div class="card__face card__face--front">
                             <h2 class="card-label">Outside the Office</h2>
                             <p class="card-text">Fueling creativity with hobbies I love.</p>
@@ -136,11 +130,48 @@
                 </article>
             </div>
 
-            <section class="gallery">
-                <img src="img/portrait.jpg" alt="Design showcase" class="main-image" loading="lazy" width="982" height="420">
-                <div class="image-grid">
-                    <img src="https://cdn.builder.io/api/v1/image/assets/5c5a1c7e3cef499ba42a791093f6b50d/415f0cfbf5e4b749d569f0c6c427c1ae3a6d9eab48240b7b951eb7207bb78ce6?apiKey=5c5a1c7e3cef499ba42a791093f6b50d&" alt="Design process" class="grid-image" loading="lazy" width="479" height="420">
-                    <img src="https://cdn.builder.io/api/v1/image/assets/5c5a1c7e3cef499ba42a791093f6b50d/df9a1718bfa70e3617a736f4fb79cc6471b20debb766500c23f05b32b9d63d5d?apiKey=5c5a1c7e3cef499ba42a791093f6b50d&" alt="Creative projects" class="grid-image" loading="lazy" width="479" height="420">
+            <section class="content-section">
+                <img src="img/portrait.jpg" alt="Portrait of Herman Skog" class="portrait-image" loading="lazy" width="982" height="420">
+                
+                <div class="spotify-container">
+                    <div class="currentplaying">
+                        <svg height="50" width="50" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" class="spotify">
+                            <path d="M57,32c0,12.837-9.663,23.404-22.115,24.837C33.942,56.942,32.971,57,32,57 c-1.644,0-3.25-0.163-4.808-0.471C15.683,54.298,7,44.163,7,32C7,18.192,18.192,7,32,7S57,18.192,57,32z" fill="#1DB954"/>
+                            <path d="M41.683,44.394c-0.365,0-0.731-0.181-1.096-0.365c-3.471-2.009-7.674-3.105-12.24-3.105 c-2.559,0-5.116,0.364-7.491,0.912c-0.365,0-0.914,0.183-1.096,0.183c-0.914,0-1.461-0.732-1.461-1.462 c0-0.913,0.547-1.463,1.279-1.643c2.923-0.732,5.846-1.096,8.951-1.096c5.116,0,9.866,1.276,13.885,3.655 c0.548,0.364,0.914,0.73,0.914,1.642C43.145,43.847,42.414,44.394,41.683,44.394z" fill="#fff"/>
+                        </svg>
+                        <p class="heading">Currently Playing</p>
+                    </div>
+                    <div class="spotify-tracks">
+                        <div class="loader">
+                            <div class="song">
+                                <p class="name">Time in a Bottle</p>
+                                <p class="artist">Jim Corce</p>
+                            </div>
+                            <div class="albumcover"></div>
+                            <div class="loading">
+                                <div class="load"></div>
+                                <div class="load"></div>
+                                <div class="load"></div>
+                                <div class="load"></div>
+                            </div>
+                        </div>
+                        <div class="loader">
+                            <div class="song">
+                                <p class="name">My Way</p>
+                                <p class="artist">Frank Sinatra</p>
+                            </div>
+                            <div class="albumcover"></div>
+                            <div class="play"></div>
+                        </div>
+                        <div class="loader">
+                            <div class="song">
+                                <p class="name">Lemon Tree</p>
+                                <p class="artist">Fools Garden</p>
+                            </div>
+                            <div class="albumcover"></div>
+                            <div class="play"></div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
