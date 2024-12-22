@@ -150,31 +150,66 @@ img {
     margin: 0 auto;
 }
 
+.project-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.project-card-link:hover .project-card {
+    transform: scale(0.98);
+    border-color: transparent;
+    box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, 0.3);
+}
+
+.project-card-link:hover .project-card::before {
+    opacity: 1;
+}
+
+.project-card-link:hover .icon-image {
+    transform: rotate(90deg);
+}
+
 .project-card {
     background: var(--background-light);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-large);
     padding: 40px 32px;
     margin-bottom: var(--spacing-base);
+    transition: all 0.25s cubic-bezier(0, 0, 0, 1);
+}
+
+.project-card:hover {
+    transform: scale(0.98);
+    box-shadow: 0px 0px 30px 1px #0000004d;
 }
 
 .project-card-small {
     background: var(--background-light);
-    border: 2px solid var(--border-color);
+    border: 1px solid var(--border-color);
     border-radius: var(--border-radius-large);
     padding: 28px 24px 0;
     flex: 1;
     min-width: 240px;
     max-width: 479px;
+    min-height: 465px; /* Lagt til denne linjen */
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    transition: all 0.25s cubic-bezier(0, 0, 0, 1);
 }
+
+.project-card-small:hover {
+    transform: scale(0.98);
+    box-shadow: 0px 0px 30px 1px #0000004d;
+}
+
 
 .projects-grid {
     display: flex;
     gap: var(--spacing-base);
-    margin-bottom: var(--spacing-base);
+    margin-bottom: 
+    var(--spacing-base);
 }
 
 .project-header {
@@ -194,20 +229,29 @@ img {
     height: 47px;
     border-radius: 50%;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
     cursor: pointer;
-}
-
-.project-icon:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-image: url(img/open.svg);
+    background-size: cover;
+    background-position: center;
 }
 
 .icon-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.3s cubic-bezier(0, 0, 0, 1); /* Smooth overgang bare på transform */
+    transform: rotate(0deg);
 }
+
+.project-card:hover .icon-image {
+    transform: rotate(45deg);
+}
+
+.project-card-small:hover .icon-image {
+    transform: rotate(45deg);
+}
+
 
 .project-description {
     color: var(--secondary-text);
