@@ -64,11 +64,11 @@ img {
 
 .nav-indicator {
     position: absolute;
-    width: calc(var(--nav-width) / 4 - 8px);  /* Økte fratrekket fra 4px til 8px */
+    width: calc(var(--nav-width) / 4 - 8px);
     height: 40px;
     background: var(--nav-active-background);
     border-radius: 34px;
-    transition: transform var(--transition-speed) ease;
+    transition: transform var(--transition-standard) ease;
     left: 2px;
     top: 50%;
     transform: translate(calc(var(--nav-width) / 4 * 2), -50%);
@@ -150,25 +150,50 @@ img {
     margin: 0 auto;
 }
 
+.project-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.project-card-link:hover .project-card {
+    transform: scale(0.98);
+    border-color: transparent;
+    box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, 0.3);
+}
+
 .project-card {
     background: var(--background-light);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-large);
     padding: 40px 32px;
     margin-bottom: var(--spacing-base);
+    transition: all 0.25s cubic-bezier(0, 0, 0, 1);
+}
+
+.project-card:hover {
+    transform: scale(0.98);
+    box-shadow: 0px 0px 30px 1px #0000004d;
 }
 
 .project-card-small {
     background: var(--background-light);
-    border: 2px solid var(--border-color);
+    border: 1px solid var(--border-color);
     border-radius: var(--border-radius-large);
     padding: 28px 24px 0;
     flex: 1;
     min-width: 240px;
     max-width: 479px;
+    min-height: 465px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    transition: all 0.25s cubic-bezier(0, 0, 0, 1);
+}
+
+.project-card-small:hover {
+    transform: scale(0.98);
+    box-shadow: 0px 0px 30px 1px #0000004d;
 }
 
 .projects-grid {
@@ -194,19 +219,27 @@ img {
     height: 47px;
     border-radius: 50%;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
     cursor: pointer;
-}
-
-.project-icon:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-image: url(img/open.svg);
+    background-size: cover;
+    background-position: center;
 }
 
 .icon-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.3s cubic-bezier(0, 0, 0, 1);
+    transform: rotate(0deg);
+}
+
+.project-card:hover .icon-image {
+    transform: rotate(45deg);
+}
+
+.project-card-small:hover .icon-image {
+    transform: rotate(45deg);
 }
 
 .project-description {
@@ -218,7 +251,7 @@ img {
 .project-preview {
     position: relative;
     margin-top: auto;
-    padding: 0 32px;  /* Redusert fra 40px */
+    padding: 0 32px;
     overflow: hidden;
     width: 100%;
 }
@@ -229,11 +262,8 @@ img {
     aspect-ratio: 1440/972;
     display: block;
     border-radius: 6px 6px 0 0;
-    border-top: 1px solid #EFEFEF;
-    border-left: 1px solid #EFEFEF;
-    border-right: 1px solid #EFEFEF;
+    box-shadow: 0 0 0 1px #EFEFEF;
     object-fit: cover;
-    object-position: top;
 }
 
 .project-gallery {
