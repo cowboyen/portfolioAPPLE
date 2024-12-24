@@ -160,25 +160,26 @@ img {
     background: var(--background-light);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-large);
-    padding: 40px 32px;
+    padding: 28px 24px;
     margin-bottom: var(--spacing-base);
     transition: all 0.25s cubic-bezier(0, 0, 0, 1);
 }
 
 .project-card-small {
-    background: var(--background-light);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-large);
-    padding: 28px 24px 0;
     flex: 1;
     min-width: 240px;
     max-width: 479px;
-    min-height: 465px;
+    height: 465px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    transition: all 0.25s cubic-bezier(0, 0, 0, 1);
     position: relative;
+    background: var(--background-light);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-large);
+    padding: 28px 24px;
+    margin-bottom: var(--spacing-base);
+    transition: all 0.25s cubic-bezier(0, 0, 0, 1);
 }
 
 .projects-grid {
@@ -218,24 +219,6 @@ img {
     transition: transform 0.3s cubic-bezier(0, 0, 0, 1);
 }
 
-/* Desktop stiler */
-@media (min-width: 769px) {
-    .project-card:hover {
-        transform: scale(0.98);
-        box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, 0.3);
-    }
-    
-    .project-card-small:hover {
-        transform: scale(0.98);
-        box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, 0.3);
-    }
-    
-    .project-card:hover .icon-image,
-    .project-card-small:hover .icon-image {
-        transform: rotate(45deg);
-    }
-}
-
 .project-description {
     color: var(--secondary-text);
     font-size: 20px;
@@ -245,15 +228,14 @@ img {
 .project-preview {
     position: relative;
     margin-top: auto;
-    padding: 0 32px;
+    padding: 0;
     width: 100%;
     overflow: visible;
 }
 
 .preview-image {
     width: 100%;
-    height: auto;
-    aspect-ratio: 1440/972;
+    height: 280px;
     display: block;
     border-radius: 6px 6px 0 0;
     box-shadow: 0 0 0 1px #EFEFEF;
@@ -278,29 +260,6 @@ img {
     border-radius: var(--border-radius-medium);
 }
 
-/* Desktop visning for stor prosjekt tile */
-.project-card .project-gallery {
-    flex-direction: row;
-    gap: 16px;
-    max-width: 100%;
-}
-
-.project-card .project-gallery img {
-    flex: 1;
-    width: calc((100% - 16px) / 2);
-}
-
-.project-card .project-gallery img:last-child {
-    border-radius: var(--border-radius-medium) var(--border-radius-medium) 0 0;
-    height: 400px !important;
-    object-position: top center !important;
-}
-
-.project-card-small .project-preview {
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-
 .animation-container {
     position: absolute;
     top: 0;
@@ -322,22 +281,51 @@ img {
     );
 }
 
+/* Desktop styles */
 @media (min-width: 769px) {
-    .project-card .project-gallery img {
+    .project-card:hover,
+    .project-card-small:hover {
+        transform: scale(0.98);
+        box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, 0.3);
+    }
+    
+    .project-card:hover .icon-image,
+    .project-card-small:hover .icon-image {
+        transform: rotate(45deg);
+    }
+
+    .project-card .project-gallery,
+    .project-card-small .project-gallery {
+        flex-direction: row;
+        gap: 16px;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .project-card .project-gallery img,
+    .project-card-small .project-gallery img {
+        flex: 1;
+        width: calc((100% - 16px) / 2);
+        height: 400px;
+        object-fit: cover;
         border: 1px solid var(--border-color);
+        border-radius: var(--border-radius-medium);
     }
 
-    .project-card .project-gallery img:first-child {
-        border-bottom-left-radius: 0 !important;
-        border-bottom-right-radius: 0 !important;
+    .project-card .project-gallery img:first-child,
+    .project-card-small .project-gallery img:first-child {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
     }
 
-    .project-card .project-gallery img:last-child {
-        border-top-left-radius: 4 !important;
-        border-top-right-radius: 4 !important;
+    .project-card .project-gallery img:last-child,
+    .project-card-small .project-gallery img:last-child {
+        border-radius: var(--border-radius-medium);
+        object-position: top center;
     }
 }
 
+/* Mobile styles */
 @media (max-width: 768px) {
     .portfolio-container {
         padding: 32px 16px;
@@ -378,9 +366,21 @@ img {
         font-size: 18px;
     }
 
-    .project-card {
+    .project-card,
+    .project-card-small {
         padding: 24px 16px;
         overflow: hidden;
+    }
+
+    .project-card-small {
+        height: auto;
+        max-width: 100%;
+        padding-bottom: 0;
+    }
+    
+    .project-card-small .preview-image {
+        margin-bottom: 0;
+        border-radius: 6px 6px 0 0;
     }
 
     .project-title {
@@ -391,29 +391,34 @@ img {
         font-size: 16px;
     }
 
-    .project-card .project-gallery {
+    .project-card .project-gallery,
+    .project-card-small .project-gallery {
         display: grid;
         grid-template-rows: 250px auto;
         gap: 24px;
-        margin-bottom: -40px;
+        margin: 0;
     }
 
-    .project-card .project-gallery img {
+    .project-card .project-gallery img,
+    .project-card-small .project-gallery img {
         width: 100%;
         object-fit: cover;
+        border: 1px solid var(--border-color);
     }
 
-    .project-card .project-gallery img:first-child {
+    .project-card .project-gallery img:first-child,
+    .project-card-small .project-gallery img:first-child {
         height: 250px;
         object-position: top center;
-        border-bottom-left-radius: 0 !important;
-        border-bottom-right-radius: 0 !important;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
     }
 
-    .project-card .project-gallery img:last-child {
+    .project-card .project-gallery img:last-child,
+    .project-card-small .project-gallery img:last-child {
         height: 300px;
         object-position: bottom center;
-        margin-bottom: -40px;
+        margin-bottom: -24px;
     }
 
     .project-icon {
@@ -438,11 +443,6 @@ img {
     
     .icon-image {
         transform: rotate(45deg) !important;
-    }
-
-    .project-card-small {
-        max-width: 100%;
-        min-height: auto;
     }
 
     .nav-item {
