@@ -156,14 +156,16 @@ img {
     display: block;
 }
 
-/* Flyttet hover-effekter til desktop media query */
 .project-card {
     background: var(--background-light);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-large);
-    padding: 40px 32px;
+    padding: 40px 32px 0;
     margin-bottom: var(--spacing-base);
     transition: all 0.25s cubic-bezier(0, 0, 0, 1);
+    display: flex;
+    flex-direction: column;
+    min-height: 400px;
 }
 
 .project-card-small {
@@ -174,7 +176,6 @@ img {
     flex: 1;
     min-width: 240px;
     max-width: 479px;
-    min-height: 465px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -183,7 +184,7 @@ img {
 
 .projects-grid {
     display: flex;
-    gap: var(--spacing-base);
+    gap: 24px;
     margin-bottom: var(--spacing-base);
 }
 
@@ -219,42 +220,18 @@ img {
     transform: rotate(0deg);
 }
 
-/* Desktop hover effekter */
-@media (min-width: 769px) {
-    .project-card-link:hover .project-card {
-        transform: scale(0.98);
-        border-color: transparent;
-        box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, 0.3);
-    }
-    
-    .project-card:hover {
-        transform: scale(0.98);
-        box-shadow: 0px 0px 30px 1px #0000004d;
-    }
-
-    .project-card-small:hover {
-        transform: scale(0.98);
-        box-shadow: 0px 0px 30px 1px #0000004d;
-    }
-
-    .project-card:hover .icon-image,
-    .project-card-small:hover .icon-image {
-        transform: rotate(45deg);
-    }
-}
-
 .project-description {
     color: var(--secondary-text);
     font-size: 20px;
-    margin-bottom: var(--spacing-base);
+    margin-bottom: 16px;
 }
 
 .project-preview {
     position: relative;
-    margin-top: auto;
     padding: 0 32px;
     overflow: hidden;
     width: 100%;
+    margin-top: auto;
 }
 
 .preview-image {
@@ -262,9 +239,11 @@ img {
     height: auto;
     aspect-ratio: 1440/972;
     display: block;
-    border-radius: 6px 6px 0 0;
-    box-shadow: 0 0 0 1px #EFEFEF;
+    border: 1px solid #E5E5E5;
+    border-radius: 12px 12px 0 0;
     object-fit: cover;
+    object-position: top center;
+    margin-bottom: -1px;
 }
 
 .project-gallery {
@@ -277,6 +256,10 @@ img {
     flex: 1;
     min-width: 240px;
     border-radius: var(--border-radius-medium);
+    height: auto;
+    aspect-ratio: 1440/972;
+    object-fit: cover;
+    object-position: top center;
 }
 
 .animation-container {
@@ -300,7 +283,54 @@ img {
     );
 }
 
+@media (min-width: 769px) {
+    .project-card-link:hover .project-card {
+        transform: scale(0.98);
+        border-color: transparent;
+        box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, 0.3);
+    }
+    
+    .project-card:hover {
+        transform: scale(0.98);
+        box-shadow: 0px 0px 30px 1px #0000004d;
+    }
+
+    .project-card-small:hover {
+        transform: scale(0.98);
+        box-shadow: 0px 0px 30px 1px #0000004d;
+    }
+
+    .project-card:hover .icon-image,
+    .project-card-small:hover .icon-image {
+        transform: rotate(45deg);
+    }
+
+    .project-gallery {
+        flex-direction: row;
+        gap: 16px;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .gallery-image {
+        width: calc((100% - 16px) / 2);
+        height: auto;
+        aspect-ratio: 1440/972;
+        border: 1px solid #E5E5E5;
+        border-radius: 12px 12px 0 0;
+    }
+
+    .project-card-small {
+        min-height: 465px;
+    }
+}
+
 @media (max-width: 768px) {
+    :root {
+        --nav-height: 40px;
+        --spacing-base: 12px;
+    }
+
     .portfolio-container {
         padding: 32px 16px;
     }
@@ -309,27 +339,82 @@ img {
         flex-direction: column;
     }
 
+    .navigation {
+        margin-bottom: 16px;
+    }
+
+    .nav-menu {
+        width: var(--nav-width);
+        height: var(--nav-height);
+    }
+
+    .nav-item {
+        font-size: 12px;
+        padding: 0 2px;
+    }
+
+    .profile-section {
+        margin-bottom: 32px;
+    }
+
+    .profile-image {
+        width: 56px;
+        height: 56px;
+    }
+
+    .profile-name {
+        font-size: 24px;
+    }
+
+    .profile-details {
+        font-size: 18px;
+    }
+
+    .project-card,
     .project-card-small {
-        max-width: 100%;
+        padding: 24px 24px 0;
+        overflow: hidden;
     }
 
     .project-preview {
-        margin-bottom: -2px;
+        margin: 8px 0 0;
+        padding: 0;
+        width: 100%;
     }
     
     .preview-image {
         vertical-align: bottom;
+        border-bottom: 0;
+        margin-bottom: 0;
     }
 
     .project-gallery {
         flex-direction: column;
+        margin: 8px 0 0;
     }
 
     .gallery-image {
         width: 100%;
+        border: 1px solid #E5E5E5;
     }
 
-    /* Fjern hover-effekter på mobil */
+    .project-title {
+        font-size: 24px;
+    }
+
+    .project-description {
+        font-size: 16px;
+    }
+
+    .project-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .nav-indicator {
+        height: 36px;
+    }
+
     .project-card:hover,
     .project-card-small:hover,
     .project-card-link:hover .project-card {
@@ -338,7 +423,6 @@ img {
         border-color: var(--border-color);
     }
     
-    /* Lås ikonrotasjon på mobil */
     .icon-image {
         transform: rotate(45deg) !important;
     }
