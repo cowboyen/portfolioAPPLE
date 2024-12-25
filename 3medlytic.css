@@ -222,6 +222,12 @@ body {
 .tool-icon {
     width: 68px;
     height: 68px;
+    background-color: var(--background-light);  /* Matcher bakgrunnsfargen */
+}
+
+.tools-card img.tool-icon {  /* Mer spesifikk selector */
+    width: 48px;
+    height: 48px;
 }
 
 .context-section {
