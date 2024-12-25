@@ -373,3 +373,14 @@ body {
         max-width: 100%;
     }
 }
+
+@media (max-width: 480px) {
+    .nav-item {
+        font-size: 12px;
+        padding: 0 2px;
+    }
+    
+    :root {
+        --nav-height: 40px;
+    }
+}    

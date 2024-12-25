@@ -222,12 +222,6 @@ body {
 .tool-icon {
     width: 68px;
     height: 68px;
-    background-color: var(--background-light);  /* Matcher bakgrunnsfargen */
-}
-
-.tools-card img.tool-icon {  /* Mer spesifikk selector */
-    width: 48px;
-    height: 48px;
 }
 
 .context-section {
@@ -379,3 +373,14 @@ body {
         max-width: 100%;
     }
 }
+
+@media (max-width: 480px) {
+    .nav-item {
+        font-size: 12px;
+        padding: 0 2px;
+    }
+    
+    :root {
+        --nav-height: 40px;
+    }
+}    
