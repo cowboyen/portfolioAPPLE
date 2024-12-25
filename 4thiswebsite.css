@@ -1,0 +1,381 @@
+:root {
+    --primary-text: rgba(30, 30, 30, 1);
+    --secondary-text: #757575;
+    --border-color: rgba(229, 229, 229, 1);
+    --background-light: rgba(245, 245, 245, 1);
+    --nav-background: rgba(255, 255, 255, 0.6);
+    --nav-active-background: rgba(245, 245, 245, 1);
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --nav-width: min(424px, 90vw);
+    --nav-height: 44px;
+    --transition-standard: 0.3s ease;
+}
+
+/* Reset and Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
+    color: var(--primary-text);
+    background-color: #fff;
+}
+
+/* Layout */
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 64px 32px;
+}
+
+/* Navigation */
+.navigation {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    background: var(--nav-background);
+    border: 1px solid var(--border-color);
+    border-radius: 67px;
+    padding: 2px;
+    position: relative;
+    box-shadow: var(--card-shadow);
+    width: var(--nav-width);
+    height: var(--nav-height);
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.nav-indicator {
+    position: absolute;
+    width: calc(var(--nav-width) / 4 - 8px);
+    height: 40px;
+    background: var(--nav-active-background);
+    border-radius: 34px;
+    transition: transform var(--transition-standard);
+    left: 2px;
+    top: 50%;
+    transform: translate(calc(var(--nav-width) / 4 * 2), -50%);
+    z-index: 0;
+}
+
+.nav-item {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 100%;
+    text-align: center;
+    color: var(--secondary-text);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 200px;
+    transition: all var(--transition-standard);
+    padding: 0 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.nav-item.active,
+.nav-item:hover {
+    color: var(--primary-text);
+}
+
+.project-content {
+    padding-top: 80px;  /* Øker padding i toppen */
+}
+
+.project-intro {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.project-number {
+    font-size: 96px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.project-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-top: 24px;
+}
+
+.project-subtitle {
+    font-size: 24px;
+    color: var(--secondary-text);
+    margin-top: 24px;
+}
+
+.project-tags {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+  
+  .project-image-container {
+    border-radius: 32px;
+    background-color: rgba(245, 245, 245, 1);
+    display: flex;
+    width: 100%;
+    max-width: 864px;  /* Matches other container widths */
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    flex-direction: column;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;  /* Reduced padding */
+    border: 1px solid var(--border-color);
+  }
+
+  .project-image-container img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .project-image-caption {
+    font-size: 16px;
+    font-style: italic;
+    color: var(--secondary-text);
+    margin-top: 16px;
+    text-align: center;
+}
+
+
+.tag {
+    background: var(--background-light);
+    padding: 16px;
+    border-radius: 80px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Project Details */
+.project-details {
+    max-width: 864px;
+    margin: 0 auto;
+}
+
+.role-section {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.role-card,
+.tools-card {
+    background: var(--background-light);
+    border: 1px solid var(--border-color);
+    border-radius: 32px;
+    padding: 32px 24px;
+    flex: 1;
+}
+
+.role-title {
+    color: var(--secondary-text);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.role-description {
+    margin-top: 16px;
+    font-size: 20px;
+}
+
+.tools-card {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    justify-content: center;
+}
+
+.tool-icon {
+    width: 68px;
+    height: 68px;
+    background-color: var(--background-light);  /* Matcher bakgrunnsfargen */
+}
+
+.tools-card img.tool-icon {  /* Mer spesifikk selector */
+    width: 48px;
+    height: 48px;
+}
+
+.context-section {
+    max-width: 864px;
+    margin: 0 auto 35px;
+}
+
+.context-title {
+    color: var(--secondary-text);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.context-description {
+    font-size: 20px;
+    color: #434343;
+    line-height: 1.6;
+}
+
+/* UL Styling for Context Descriptions */
+.context-section ul {
+    margin-left: 32px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.context-section ul li {
+    font-size: 20px;
+    color: #434343;
+    line-height: 32px;
+    list-style-type: disc;
+    margin-bottom: 8px;
+}
+
+/* Desktop */
+.context-section .context-description {
+    font-size: 20px;
+    line-height: 32px;  /* Endret fra 1.6 til eksakt 32px */
+    color: #434343;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+}
+
+.context-section .context-description + .context-description {
+    margin-top: 32px;
+}
+
+.research-section {
+    max-width: 864px;
+    margin: 0 auto 48px;
+}
+
+/* Connect Section */
+.connect-section {
+    background: var(--background-light);
+    border: 1px solid var(--border-color);
+    border-radius: 32px;
+    padding: 40px 32px;
+    text-align: center;
+}
+
+.connect-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.connect-buttons {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.connect-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 40px;
+    background: #fff;
+    border: 2px solid var(--border-color);
+    border-radius: 80px;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.connect-btn:hover {
+    opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-container {
+        padding: 32px 16px;
+    }
+    
+    .project-number {
+        font-size: 40px;
+    }
+
+    .project-content {
+        padding-top: 48px;  /* Mindre padding på mobil */
+    }
+
+    .context-section .context-description {
+        font-size: 18px;
+        line-height: 24px;  /* Justert for mobil med samme forhold */
+    }
+    
+    /* Justerer også mellomrom mellom avsnitt på mobil */
+    .context-section .context-description + .context-description {
+        margin-top: 24px;
+    }
+    
+    .role-section {
+        flex-direction: column;
+    }
+    
+    .connect-btn {
+        padding: 13px 20px;
+        font-size: 16px;
+    }
+
+    /* Mobile Responsive UL Styling */
+    .context-section ul {
+        margin-left: 24px;
+    }
+
+    .context-section ul li {
+        font-size: 18px;
+        line-height: 24px;
+        margin-bottom: 8px;
+    }
+    .project-image-container {
+        padding: 16px;  /* Reduced padding */
+        min-height: 240px;  /* Ensure minimum height */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .project-image-container img {
+        max-height: 100%;  /* Ensure image fills container */
+        width: auto;
+        max-width: 100%;
+    }
+}
