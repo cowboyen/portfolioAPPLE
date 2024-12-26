@@ -165,14 +165,14 @@ img {
     transition: all 0.25s cubic-bezier(0, 0, 0, 1);
     display: flex;
     flex-direction: column;
-    min-height: 400px;
+    min-height: 350px;
 }
 
 .project-card-small {
     background: var(--background-light);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-large);
-    padding: 28px 24px 0;
+    padding: 40px 32px 0;
     flex: 1;
     min-width: 240px;
     max-width: 479px;
@@ -228,7 +228,6 @@ img {
 
 .project-preview {
     position: relative;
-    padding: 0 32px;
     overflow: hidden;
     width: 100%;
     margin-top: auto;
@@ -237,12 +236,10 @@ img {
 .preview-image {
     width: 100%;
     height: auto;
-    aspect-ratio: 1440/972;
+    aspect-ratio: 0/972;
     display: block;
     border: 1px solid #E5E5E5;
     border-radius: 12px 12px 0 0;
-    object-fit: cover;
-    object-position: top center;
     margin-bottom: -1px;
 }
 
@@ -257,9 +254,14 @@ img {
     min-width: 240px;
     border-radius: var(--border-radius-medium);
     height: auto;
-    aspect-ratio: 1440/972;
     object-fit: cover;
     object-position: top center;
+}
+
+.gallery-image-no-border {
+    border: none !important;
+    border-radius: 0 !important;
+    padding-bottom: 24px !important; /* Legger til padding under bildet */
 }
 
 .animation-container {
@@ -315,9 +317,14 @@ img {
     .gallery-image {
         width: calc((100% - 16px) / 2);
         height: auto;
-        aspect-ratio: 1440/972;
         border: 1px solid #E5E5E5;
         border-radius: 12px 12px 0 0;
+    }
+    
+    .gallery-image-no-border {
+        border: none !important;
+        border-radius: 0 !important;
+        padding-bottom: 24px !important;
     }
 
     .project-card-small {
