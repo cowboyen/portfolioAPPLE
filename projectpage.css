@@ -119,6 +119,9 @@ body {
     font-size: 24px;
     color: var(--secondary-text);
     margin-top: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 864px;  /* Matches other container widths */
 }
 
 .project-tags {
@@ -296,7 +299,17 @@ body {
     gap: 24px;
     justify-content: center;
     flex-wrap: wrap;
-}
+ }
+ 
+ .connect-buttons .connect-btn {
+    background: #fff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+ }
+ 
+ .connect-buttons .connect-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+ }
 
 .connect-btn {
     display: flex;
