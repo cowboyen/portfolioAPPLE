@@ -44,7 +44,7 @@ img {
 .navigation {
     display: flex;
     justify-content: center;
-    margin-bottom: var(--spacing-base);
+    margin-bottom: 24px;
     width: 100%;
 }
 
