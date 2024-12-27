@@ -145,25 +145,26 @@ body {
   .project-image-container {
     border-radius: 32px;
     background-color: rgba(245, 245, 245, 1);
-    display: flex;
     width: 100%;
-    max-width: 864px;  /* Matches other container widths */
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 30px;
+    max-width: 864px;
+    margin: 0 auto 30px;
+    display: flex;
     flex-direction: column;
-    overflow: hidden;
     align-items: center;
     justify-content: center;
-    padding: 60px;  /* Reduced padding */
+    padding: 60px;
     border: 1px solid var(--border-color);
-  }
-
-  .project-image-container img {
+    overflow: hidden;
+ }
+ 
+ .project-image-container img {
     max-width: 100%;
+    width: auto;
     height: auto;
     object-fit: contain;
-  }
+    display: block;
+    margin: 0 auto;
+ }
 
   .project-image-caption {
     font-size: 16px;
