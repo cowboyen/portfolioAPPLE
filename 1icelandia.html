@@ -51,66 +51,84 @@
                 </div>
 
                 <div class="context-section">
-                    <div class="context-title">Overview</div>
+                    <div class="context-title">The problem</div>
                     <p class="context-description">
-                        Designed and developed a comprehensive My Account solution for Fagmøbler, Norway's leading furniture retailer.
-                        The project focused on creating an intuitive and user-friendly account management system based on extensive UX research and best practices.
+                        The existing tourist bus interface faced two critical issues. First, poor visual hierarchy where all elements – buses, stops, and routes – shared the 
+                        same red color, making navigation difficult. Second, a problematic time display system where waiting times were based on fixed schedule points rather 
+                        than actual bus location. For example, if a bus was scheduled for 14:15, the system would show "9 minutes" at 14:06, regardless of the bus's actual 
+                        position. This rigid schedule-based approach, rather than real-time tracking, led to significant user frustration and confusion.
                     </p>
                 </div>
 
                 <div class="context-section">
-                    <div class="context-title">Methodology</div>
+                    <div class="context-title">Discovery and analysis</div>
                     <p class="context-description">
-                        The UX design process was firmly grounded in Baymard Institute's research and best practices,ensuring a data-driven approach to 
-                        user experience. All design decisions were meticulously documented to facilitate seamless handover to UI designers and maintain design 
-                        consistency throughout the project.
+                        The initial phase involved analyzing the existing color system and user pain points. User feedback identified that the monochromatic 
+                        red scheme was causing significant confusion, particularly when users tried to distinguish between buses and stops on the map.
                     </p>
                 </div>
 
                 <div class="context-section">
-                    <div class="context-title">Design process</div>
+                    <div class="context-title">Design system development</div>
                     <p class="context-description">
-                        Initial ideation and wireframing were conducted in FigJam, allowing for rapid iteration and stakeholder feedback. This collaborative
-                        approach enabled early validation of concepts and user flows. Following stakeholder approval, the design process moved to Figma where
-                        detailed UX documentation was integrated alongside the design work.
-                    </p>
-                </div>
-
-                <div class="project-image-container" role="region" aria-label="Project image container">
-                    <img src="img/fagmøblerwireframe.png" alt="Wireframes">
-                    <p class="project-image-caption">Low-fi prototypes of my account</p>
-                </div>
-
-                <div class="context-section">
-                    <div class="context-title">My account features</div>
-                    <p class="context-description">
-                        The My Account solution includes six key features:
+                        The new design system focused on clear visual hierarchy and component reusability. Key elements included:
                         <ul>
-                            <li><b>My orders:</b> View all orders, track active orders and download receipts</li>
-                            <li><b>Favorites</b>  Save and organize favorite products</li>
-                            <li><b>My profile:</b>  Update personal information and manage security settings</li>
-                            <li><b>Privacy and notifications:</b>  Control marketing preferences and communication settings</li>
-                            <li><b>Payment methods</b>  Store and manage payment cards</li>
-                            <li><b>Customer service</b>  Quick access to the help center that provdes FAQ and contact information</li>
+                            <li><b>Map Component States:</b> The map interface was developed with various zoom states, ensuring information remained clear and useful at 
+                                each level. This involved careful consideration of how different elements (buses, stops, routes) would scale and interact.
+                            </li>
+                            <li><b>Icon Redesign</b> The bus and bus stop icons were completely reimagined to create clear visual distinction. Each icon was designed to 
+                                work across different sizes while maintaining visibility and purpose.
+                            </li>
+                            <li><b>Stop List Variations:</b>The mobile interface implements horizontal swipeable cards, following established design conventions for public transport 
+                                applications. This pattern leverages natural thumb gestures and allows efficient browsing of stops. The desktop version utilizes a vertical list view, 
+                                better suited for larger screens and mouse-based interaction. Both formats maintain consistent information hierarchy while optimizing for their respective platforms.
+                            </li>
                         </ul>
                     </p>
                 </div>
 
+                <div class="project-image-container" role="region" aria-label="Project image container">
+                    <img src="img/icelandia/Icelandia_designsystem.png" alt="Design system">
+                    <p class="project-image-caption">A glimpse of the design system</p>
+                </div>
+
                 <div class="context-section">
-                    <div class="context-title">Implementation</div>
+                    <div class="context-title">Real time integration</div>
                     <p class="context-description">
-                        Design specifications and UX patterns were thoroughly documented, providing clear direction for the UI design phase while 
-                        maintaining flexibility for visual design decisions. The extensive documentation ensures design consistency, best practice and 
-                        facilitates future updates and maintenance.
+                        A major improvement was the shift from fixed schedule times to actual real-time tracking. Instead of showing countdown to pre-scheduled arrival times (without including delays).
+                        The new interface displays the bus's current location related to the chosen stop. This change directly addressed user feedback 
+                        about the misleading nature of the previous system. The implementation required careful consideration of how to display dynamic timing information clearly 
+                        while handling real-world variables like traffic delays and service changes. As a result of this, we also had to include semantic components so delays and/or bigger events can be annonced.
                     </p>
                 </div>
 
                 <div class="context-section">
                     <div class="context-title">Impact</div>
                     <p class="context-description">
-                        The resulting My Account system provides Fagmøbler's customers with a professional, secure, and user-friendly platform for managing their
-                         purchases and account information. The implementation of Baymard Institute's best practices ensures a high-quality user experience that
-                        meets modern e-commerce standards.
+                        The redesign delivered several key improvements:
+                        <ul>
+                            <li>Clear visual differentiation between service elements</li>
+                            <li>Accurate, real-time arrival information</li>
+                            <li>Consistent experience across devices</li>
+                            <li>Scalable design system for future development</li>
+                        </ul>
+                    </p>
+                </div>
+
+                <div class="context-section">
+                    <div class="context-title">Technical details</div>
+                    <p class="context-description">
+                        The design system was built using Figma, with components designed for both mobile and desktop implementations. 
+                        Comprehensive documentation was created for the development team, including component specifications and interaction states.
+                    </p>
+                </div>
+
+                <div class="context-section">
+                    <div class="context-title">Learnings</div>
+                    <p class="context-description">
+                        The project demonstrated how systematic design thinking can solve complex UX challenges. The initial focus on color and visual hierarchy proved crucial 
+                        in creating a more intuitive service. The process highlighted how fundamental design decisions, like the switch from scheduled to real-time tracking, 
+                        can significantly impact user trust and satisfaction.
                     </p>
                 </div>
 
