@@ -353,6 +353,10 @@ body {
     .context-section .context-description + .context-description {
         margin-top: 24px;
     }
+
+    .project-subtitle {
+        font-size: 18px
+    }
     
     .role-section {
         flex-direction: column;
