@@ -72,7 +72,7 @@ img {
     transition: transform var(--transition-standard);
     left: 4px;
     top: 50%;
-    transform: translate(calc(var(--nav-width) / 4 * 3 - 4px), -50%);
+    transform: translate(calc(var(--nav-width) / 4 * 3 - 6px), -50%); /* Endret fra -16px til -6px */
     z-index: 0;
 }
 
