@@ -3,52 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Herman Skog's UX/UI Design Portfolio">
-    <title>Home - Herman Skog</title>
-    <link rel="icon" type="image/x-icon" href="img/favicon.png">
+    <meta name="description" content="Project section showcasing projects">
+    <title>Projects - Herman Skog</title>
+    <link rel="icon" type="image/x-icon" href="/projects/img/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="projects.css" />
 </head>
 <script type="text/javascript" src="spline.js"></script>
-<script type="text/javascript" src="animation.js"></script>
 <body>
     <div class="portfolio-container">
         <div class="animation-container"></div>
-        
         <nav class="navigation" role="navigation" aria-label="Main navigation">
             <div class="nav-menu">
-                <a href="./" class="nav-item active" aria-current="page">Home</a>
-                <a href="./about" class="nav-item">About</a>
-                <a href="./projects" class="nav-item">Projects</a>
-                <a href="./connect" class="nav-item">Connect</a>
+                <a href="/" class="nav-item">Home</a>
+                <a href="/about" class="nav-item">About</a>
+                <a href="/projects/index" class="nav-item active" aria-current="page">Projects</a>
+                <a href="/connect" class="nav-item">Connect</a>
                 <div class="nav-indicator" aria-hidden="true"></div>
             </div>
         </nav>
 
         <main>
-            <section class="profile-section" aria-labelledby="profile-heading">
+            <section class="profile-section" aria-labelledby="projects-heading">
                 <div class="profile-container">
                     <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.48/build/spline-viewer.js"></script>
                     <spline-viewer url="https://prod.spline.design/LxZUKKOCNNT5Mufv/scene.splinecode"></spline-viewer>
                     <div class="profile-info">
-                        <h1 id="profile-heading" class="profile-name">Herman Skog</h1>
+                        <h1 id="projects-heading" class="profile-name">My Projects</h1>
                         <div class="profile-details">
-                            <p>I'm a UX/UI designer focused on user-centered experiences.</p>
-                            <p>Currently working as a design intern at TRY Dig.</p>
+                            <p>Design work and creative projects, ranging from UX/UI design to frontend development.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
             <section class="projects-section" aria-label="Projects">
-                <a href="projects/icelandia" class="project-card-link">
+                <a href="/projects/icelandia" class="project-card-link">
                     <article class="project-card">
                         <div class="project-header">
                             <h2 class="project-title">Icelandia</h2>
                             <div class="project-icon">
-                                <img src="img/open.svg" alt="" class="icon-image" width="47" height="47" loading="lazy" aria-hidden="true"/>
+                                <img src="/img/open.svg" alt="" class="icon-image" width="47" height="47" loading="lazy" aria-hidden="true"/>
                             </div>
                         </div>
                         <p class="project-description">A redesign of the Hop-On Hop-Off service in Iceland. Redesigned to provide clearer route visualization and live bus tracking.
@@ -60,7 +57,7 @@
                 </a>
 
                 <div class="projects-grid">
-                    <a href="projects/fagmobler" class="project-card-link">
+                    <a href="fagmobler.html" class="project-card-link">
                         <article class="project-card-small">
                             <div class="project-header">
                                 <h2 class="project-title">Fagmøbler</h2>
@@ -68,14 +65,14 @@
                                     <img src="img/open.svg" alt="" class="icon-image" width="47" height="47" loading="lazy" aria-hidden="true"/>
                                 </div>
                             </div>
-                            <p class="project-description">UX-design for Fagmøblers my Account solution, Norway's leading furniture retailer. Built on Baymard Institute research.</p>
+                            <p class="project-description">UX-design for Fagmøblers my account solution, Norway's leading furniture retailer. Built on Baymard Institute research.</p>
                             <div class="project-preview">
                                 <img src="img/fagmobler/wireframe3.png" class="preview-image" width="371" height="230" loading="lazy"/>
                             </div>
                         </article>
                     </a>
 
-                    <a href="projects/medlytic" class="project-card-link">
+                    <a href="medlytic.html" class="project-card-link">
                         <article class="project-card-small">
                             <div class="project-header">
                                 <h2 class="project-title">Medlytic</h2>
@@ -83,7 +80,7 @@
                                     <img src="img/open.svg" alt="" class="icon-image" width="47" height="47" loading="lazy" aria-hidden="true"/>
                                 </div>
                             </div>
-                            <p class="project-description">UX/UI Design for Medlytic - Improved data visualization and user experience for healthcare leaders in hospitals.</p>
+                            <p class="project-description">UX/UI Design for Medlytic - Improved data visualization for healthcare leaders and employees in hospitals.</p>
                             <div class="project-preview">
                                 <img src="img/medlytic/medlytic_dashboard.png" class="preview-image" width="371" height="230" loading="lazy"/>
                             </div>
@@ -91,7 +88,7 @@
                     </a>
                 </div>
 
-                <a href="projects/thiswebsite" class="project-card-link">
+                <a href="thiswebsite.html" class="project-card-link">
                     <article class="project-card">
                         <div class="project-header">
                             <h2 class="project-title">This website</h2>
@@ -101,8 +98,8 @@
                         </div>
                         <p class="project-description">A minimalistic but playful website with focus on scalability. Designed and coded by me.</p>
                         <div class="project-gallery">
-                            <img src="img/website/figma.png" alt="Design for this website" class="gallery-image" loading="lazy"/>
-                            <img src="img/website/codescreenshot.png" alt="Design for this website" class="gallery-image" loading="lazy"/>
+                            <img src="img/website/figma.png" alt="VELO project image" class="gallery-image" width="349" height="256" loading="lazy"/>
+                            <img src="img/website/codescreenshot.png" alt="VELO project image" class="gallery-image" width="349" height="256" loading="lazy"/>
                         </div>
                     </article>
                 </a>
