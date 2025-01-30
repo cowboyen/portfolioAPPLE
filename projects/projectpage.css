@@ -333,7 +333,7 @@ body {
 .scroll-to-top {
     position: fixed;
     bottom: 24px;
-    right: 24px;
+    right: 16px;
     width: 48px;
     height: 48px;
     background: #fff;
