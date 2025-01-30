@@ -5,7 +5,6 @@ window.onload = function() {
         const logo = shadowRoot.querySelector('#logo');
         if (logo) {
             logo.remove();
-            console.log('Spline watermark removed');
         }
     }
 };

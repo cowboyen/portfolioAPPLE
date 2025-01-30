@@ -204,10 +204,6 @@ body {
     overflow: hidden;
 }
 
-.card__face--front {
-    /* Ingen transform nødvendig for front */
-}
-
 .card__face--back {
     transform: rotateY(180deg);
 }
