@@ -41,10 +41,16 @@ img {
 }
 
 .navigation {
+    position: sticky;
+    top: 24px;
     display: flex;
     justify-content: center;
-    margin-bottom: var(--spacing-base);
-    width: 100%;
+    margin: 0 auto; /* Legger til auto margins på sidene */
+    margin-bottom: var(--spacing-standard);
+    width: var(--nav-width);
+    z-index: 1000;
+    left: 0;
+    right: 0;
 }
 
 .nav-menu {
