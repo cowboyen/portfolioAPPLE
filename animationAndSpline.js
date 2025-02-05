@@ -1,22 +1,3 @@
-// Vent på at både DOM og Spline er klare
-document.addEventListener('DOMContentLoaded', async () => {
-    // Håndter Spline først
-    window.onload = function() {
-        const splineViewer = document.querySelector('spline-viewer');
-        if (splineViewer) {
-            const shadowRoot = splineViewer.shadowRoot;
-            const logo = shadowRoot.querySelector('#logo');
-            if (logo) {
-                logo.remove();
-            }
-        }
-    };
-
-    // Start animasjon etter Spline er håndtert
-    initAnimation();
-});
-
-// Animasjonslogikk
 document.addEventListener('DOMContentLoaded', async () => {
     window.onload = function() {
         const splineViewer = document.querySelector('spline-viewer');
@@ -47,7 +28,9 @@ function initAnimation() {
                 position: absolute;
                 font-family: Helvetica;
                 color: rgb(${brightness}, ${brightness}, ${brightness});
-                transition: opacity 0.3s
+                transition: opacity 0.3s;
+                opacity: 0;
+                transform: translate(${innerWidth / 2}px, ${innerHeight / 3}px);
             `
         });
 
@@ -65,6 +48,9 @@ function initAnimation() {
             vx: 0,
 
             run() {
+                if (this.el.style.opacity === '0') {
+                    this.el.style.opacity = '1';
+                }
                 this.updatePosition();
                 this.handleCollisions();
                 this.updateVelocity();
