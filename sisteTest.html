@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="matterCSS.css" />
+</head>
+<body>
+    <div id="matter-container">
+        <div id="go-back-button">Go back</div>
+        <div class="physics-pill" style="background-color: #00830d;">NOT YET</div>
+        <div class="physics-pill" style="background-color: #e24a90;">NOT READY</div>
+        <div class="physics-pill" style="background-color: #0026ff;">COMING SOON</div>
+        <div class="physics-pill" style="background-color: #7300ff;">JUST WAIT</div>
+        <div class="physics-pill" style="background-color: #ff6b00;">PATIENCE</div>
+        <div class="physics-pill" style="background-color: #00a3cc;">LOADING</div>
+        <div class="physics-pill" style="background-color: #ff2020;">HOLD ON</div>
+        <div class="physics-pill" style="background-color: #8bc34a;">ALMOST THERE</div>
+        <div class="physics-pill" style="background-color: #673ab7;">IN PROGRESS</div>
+        <div class="physics-pill" style="background-color: #009688;">STANDBY</div>
+        <div class="physics-pill" style="background-color: #ff4081;">PROCESSING</div>
+        <div class="physics-pill" style="background-color: #3f51b5;">PENDING</div>
+        <div class="physics-pill" style="background-color: #795548;">ONE MOMENT</div>
+        <div class="physics-pill" style="background-color: #607d8b;">WAIT A SEC</div>
+        <div class="physics-pill" style="background-color: #f44336;">NOT NOW</div>
+        <div class="physics-pill" style="background-color: #9c27b0;">SOON</div>
+        <div class="physics-pill" style="background-color: #2196f3;">PREPARING</div>
+        <div class="physics-pill" style="background-color: #4caf50;">GETTING READY</div>
+        <div class="physics-pill" style="background-color: #ff9800;">WORKING ON IT</div>
+        <div class="physics-pill" style="background-color: #9e9e9e;">ALMOST DONE</div>
+        <div class="physics-pill" style="background-color: #00bcd4;">HANG TIGHT</div>
+        <div class="physics-pill" style="background-color: #e91e63;">NOT QUITE</div>
+        <div class="physics-pill" style="background-color: #5677fc;">STAY TUNED</div>
+        <div class="physics-pill" style="background-color: #259b24;">PROCESSING</div>
+        <div class="physics-pill" style="background-color: #ff5722;">PLEASE WAIT</div>
+        <div class="physics-pill" style="background-color: #03a9f4;">COMPUTING</div>
+        <div class="physics-pill" style="background-color: #cddc39;">CALCULATING</div>
+        <div class="physics-pill" style="background-color: #ff9800;">COMPILING</div>
+        <div class="physics-pill" style="background-color: #795548;">GENERATING</div>
+        <div class="physics-pill" style="background-color: #607d8b;">STANDBY</div>
+        <div class="physics-pill" style="background-color: #f44336;">NOT READY</div>
+        <div class="physics-pill" style="background-color: #9c27b0;">LOADING</div>
+        <div class="physics-pill" style="background-color: #2196f3;">ALMOST</div>
+        <div class="physics-pill" style="background-color: #4caf50;">SOON</div>
+        <div class="physics-pill" style="background-color: #ff9800;">WAIT</div>
+    </div>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        #matter-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .physics-pill {
+            position: absolute;
+            padding: 12px 24px;
+            color: white;
+            border-radius: 9999px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 16px;
+            white-space: nowrap;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            cursor: grab;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        #go-back-button {
+            position: absolute;
+            width: 200px;
+            height: 60px;
+            background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+            color: #007aff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 12px;
+            z-index: 20;
+            cursor: pointer;
+            user-select: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.1);
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        #go-back-button:hover {
+            background: linear-gradient(to bottom, #f5f5f5, #e5e5e5);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.12);
+        }
+        
+        #go-back-button:active {
+            transform: translate(-50%, -50%) scale(0.95);
+            background: linear-gradient(to bottom, #e5e5e5, #d5d5d5);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        </style>
+        
+        <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const goBackButton = document.querySelector('#go-back-button');
+            
+            goBackButton.addEventListener('click', () => {
+                // Try to go back in browser history
+                if (window.history.length > 1) {
+                    window.history.back();
+                } else {
+                    // If no previous page in history, redirect to a default page
+                    window.location.href = '/'; // Change this to your desired default page
+                }
+            });
+        });
+        </script>
+        
+        <!-- Last Matter.js først -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+        <!-- Deretter din egen kode -->
+        <script src="matterScript.js"></script>
+
+    <!-- Last Matter.js først -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+    <!-- Deretter din egen kode -->
+    <script src="matterScript.js"></script>
+</body>
+</html>
