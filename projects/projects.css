@@ -41,10 +41,16 @@ img {
 }
 
 .navigation {
+    position: sticky;
+    top: 24px;
     display: flex;
     justify-content: center;
-    margin-bottom: var(--spacing-base);
-    width: 100%;
+    margin: 0 auto; /* Legger til auto margins på sidene */
+    margin-bottom: var(--spacing-standard);
+    width: var(--nav-width);
+    z-index: 1000;
+    left: 0;
+    right: 0;
 }
 
 .nav-menu {
@@ -153,7 +159,8 @@ img {
 .project-card-link {
     text-decoration: none;
     color: inherit;
-    display: block;
+    display: flex; /* Endret fra block til flex */
+    flex: 1; /* La linken fylle tilgjengelig plass */
 }
 
 .project-card {
@@ -173,19 +180,21 @@ img {
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-large);
     padding: 40px 32px 0;
-    flex: 1;
+    flex: 1; /* Fyller hele link-høyden */
     min-width: 240px;
     max-width: 479px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
     transition: all 0.25s cubic-bezier(0, 0, 0, 1);
+    width: 100%; /* Sikrer at kortet fyller link-bredden */
 }
 
 .projects-grid {
     display: flex;
     gap: 24px;
     margin-bottom: var(--spacing-base);
+    align-items: stretch; /* Gjør at linkene får samme høyde */
 }
 
 .project-header {
@@ -327,10 +336,6 @@ img {
         border-radius: 0 !important;
         padding-bottom: 24px !important;
     }
-
-    .project-card-small {
-        min-height: 465px;
-    }
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
@@ -351,6 +356,11 @@ img {
 
     .projects-grid {
         flex-direction: column;
+        align-items: normal; /* Resetter align-items for mobile */
+    }
+
+    .project-card-link {
+        display: block; /* Tilbake til block på mobile */
     }
 
     .navigation {
@@ -388,6 +398,7 @@ img {
     .project-card-small {
         padding: 24px 24px 0;
         overflow: hidden;
+        width: auto; /* Resetter width på mobile */
     }
 
     .project-preview {
